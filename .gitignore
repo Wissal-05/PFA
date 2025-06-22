@@ -1,0 +1,16 @@
+# Fichiers d'environnement (variables sensibles)
+.env
+
+# Environnement virtuel Python
+myvenv/
+venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Dossiers système
+.DS_Store
+
+# Logs
+*.log

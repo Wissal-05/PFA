@@ -1,0 +1,13 @@
+langchain
+openai
+pymongo
+python-dotenv
+sentence-transformers
+requests
+chromadb
+langchain
+openai
+langchain-community
+tiktoken
+fastapi
+uvicorn[standard]
