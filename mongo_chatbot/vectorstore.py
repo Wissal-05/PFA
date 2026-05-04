@@ -3,7 +3,7 @@
 import os
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.schema import Document
+from langchain_core.documents import Document
 from mongo_chatbot.retriever import MongoRetriever
 
 CHROMA_DIR = "./chroma_db"

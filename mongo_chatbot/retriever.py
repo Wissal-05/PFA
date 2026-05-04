@@ -1,6 +1,6 @@
 from mongo_chatbot.db import db
 from typing import List, Dict, Optional
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 
 class MongoRetriever:
@@ -117,7 +117,7 @@ class MongoRetriever:
             flat = self.flatten_document(doc)
             text = self.format_flattened_document(flat)
             chunks.append(text)
-        return chunks
+        return chunkss
 
     def get_documents_as_langchain_objects(self) -> List[Document]:
         """
