@@ -1,19 +1,20 @@
 import os
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
 from mongo_chatbot.vectorstore import search_global_documents
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-assert OPENROUTER_API_KEY, "Définissez OPENROUTER_API_KEY"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+assert GROQ_API_KEY, "Définissez GROQ_API_KEY"
+
 
 class CustomChatBot:
     def __init__(self):
-        self.llm = ChatOpenAI(
-            model_name="openrouter/auto",
-            openai_api_base="https://openrouter.ai/api/v1",
-            openai_api_key=OPENROUTER_API_KEY,
-            temperature=0.2,
-            max_tokens=512
+        self.llm = ChatGroq(
+            model_name="llama-3.1-8b-instant",
+            api_key=GROQ_API_KEY,
+            temperature=0.2, 
+            max_tokens=2048
         )
 
     def answer_question(self, question: str) -> str:

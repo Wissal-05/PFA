@@ -117,7 +117,7 @@ class MongoRetriever:
             flat = self.flatten_document(doc)
             text = self.format_flattened_document(flat)
             chunks.append(text)
-        return chunkss
+        return chunks
 
     def get_documents_as_langchain_objects(self) -> List[Document]:
         """

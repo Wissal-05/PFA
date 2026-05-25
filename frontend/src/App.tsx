@@ -45,9 +45,10 @@ function App() {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:8000/ask", { 
-        question: input 
-      });
+      const res = await axios.post("http://localhost:8000/ask", 
+        { question: input },
+        { timeout: 60000 }
+      );
 
       const assistantMessage: Message = {
         id: Date.now().toString(),
