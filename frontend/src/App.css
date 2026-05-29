@@ -221,3 +221,119 @@ button:disabled {
     padding: 0.5rem 0.75rem;
   }
 }
+
+/* ── Feedback widget ───────────────────────────────────────────────────────── */
+
+.feedback-widget {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.feedback-label {
+  font-size: 0.75rem;
+  color: #888;
+  user-select: none;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.feedback-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.feedback-btn:hover {
+  background: #f0f0f0;
+  color: #444;
+  border-color: #bbb;
+}
+
+.feedback-btn.active.positive {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.feedback-btn.active.negative {
+  background: #fce4ec;
+  color: #c62828;
+  border-color: #ef9a9a;
+}
+
+.feedback-comment-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin-top: 4px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-comment {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.8rem;
+  resize: none;
+  color: #333;
+  background: #fafafa;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.feedback-comment:focus {
+  outline: none;
+  border-color: #999;
+  background: #fff;
+}
+
+.feedback-submit {
+  align-self: flex-end;
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: #fff;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.feedback-submit:hover:not(:disabled) {
+  background: #555;
+}
+
+.feedback-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.feedback-thanks {
+  font-size: 0.75rem;
+  color: #2e7d32;
+  font-style: italic;
+}

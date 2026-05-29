@@ -1,12 +1,19 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Optional
+from datetime import datetime, timezone
+
 from mongo_chatbot.chatbot import CustomChatBot
+from mongo_chatbot.db import db
 
 app = FastAPI()
 chatbot = CustomChatBot()
 
-# Autoriser le frontend React
+# Feedback collection
+feedback_collection = db["feedbacks"]
+
+# ── CORS ──────────────────────────────────────────────────────────────────────
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
@@ -15,10 +22,63 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ── Models ────────────────────────────────────────────────────────────────────
 class Question(BaseModel):
     question: str
 
+
+class FeedbackModel(BaseModel):
+    message_id: str
+    question: str
+    answer: str
+    rating: str                    # "positive" | "negative"
+    comment: Optional[str] = ""
+
+
+# ── Routes ────────────────────────────────────────────────────────────────────
 @app.post("/ask")
 def ask_question(data: Question):
     answer = chatbot.answer_question(data.question)
     return {"answer": answer}
+
+
+@app.post("/feedback")
+def submit_feedback(data: FeedbackModel):
+    """
+    Store user feedback for a single assistant message.
+    Document shape stored in MongoDB:
+    {
+        message_id : str,
+        question   : str,
+        answer     : str,
+        rating     : "positive" | "negative",
+        comment    : str,
+        created_at : datetime (UTC)
+    }
+    """
+    doc = {
+        "message_id": data.message_id,
+        "question": data.question,
+        "answer": data.answer,
+        "rating": data.rating,
+        "comment": data.comment or "",
+        "created_at": datetime.now(timezone.utc),
+    }
+    feedback_collection.insert_one(doc)
+    return {"status": "ok"}
+
+
+@app.get("/feedback/stats")
+def get_feedback_stats():
+    """
+    Quick summary: total ratings, positive vs negative count.
+    Useful for an admin dashboard later.
+    """
+    total = feedback_collection.count_documents({})
+    positive = feedback_collection.count_documents({"rating": "positive"})
+    negative = feedback_collection.count_documents({"rating": "negative"})
+    return {
+        "total": total,
+        "positive": positive,
+        "negative": negative,
+    }

@@ -14,8 +14,7 @@ if not MONGODB_URI:
 client = MongoClient(
     MONGODB_URI,
     tls=True,
-    tlsCAFile=certifi.where(),
-    tlsAllowInvalidCertificates=True,
+    tlsCAFile=certifi.where(),      # tlsAllowInvalidCertificates removed
     serverSelectionTimeoutMS=30000,
     connectTimeoutMS=30000,
     socketTimeoutMS=30000,

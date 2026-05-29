@@ -14,20 +14,22 @@ class CustomChatBot:
             model_name="llama-3.1-8b-instant",
             api_key=GROQ_API_KEY,
             temperature=0.2, 
-            max_tokens=2048
+            max_tokens=1024
         )
 
     def answer_question(self, question: str) -> str:
-        docs = search_global_documents(question, k=15)
+        docs = search_global_documents(question, k=10)
         context = "\n\n---\n\n".join(
             f"[{d.metadata['source']}]\n{d.page_content}" for d in docs
         )
         system = (
-            "Tu es un assistant compétent de l'ENSAM. "
-            "Tu réponds TOUJOURS dans la même langue que la question posée. "
-            "Si la question est en français, tu réponds en français. "
-            "Si la question est en anglais, tu réponds en anglais. "
-            "Tu réponds uniquement avec les informations du contexte fourni."
+            "You are a helpful assistant for ENSAM school. "
+            "CRITICAL RULE: always reply in the exact same language the user used to ask their question. "
+            "If the question is in English, your entire response must be in English. "
+            "If the question is in French, your entire response must be in French. "
+            "If the question is in Arabic, your entire response must be in Arabic. "
+            "Base your answers only on the provided context. "
+            "Do not translate or change the language under any circumstances."
         )
         messages = [
             SystemMessage(content=system),
