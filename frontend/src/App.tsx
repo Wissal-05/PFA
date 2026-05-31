@@ -28,6 +28,7 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  // Nouvelle fonction sendMessage avec STREAMING
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
 
@@ -44,20 +45,48 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8000/ask', {
-        question: currentQuestion
-      });
-
+      // Créer un ID temporaire pour le message assistant
       const assistantId = (Date.now() + 1).toString();
-      const assistantMessage: Message = {
+      
+      // Ajouter un message vide qui va se remplir progressivement
+      setMessages(prev => [...prev, {
         id: assistantId,
         role: 'assistant',
-        content: response.data.answer,
+        content: '',
         timestamp: new Date(),
         relatedQuestion: currentQuestion,
-      };
-
-      setMessages(prev => [...prev, assistantMessage]);
+      }]);
+      
+      // Appel streaming vers le backend
+      const response = await fetch('http://localhost:8000/ask/stream', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: currentQuestion })
+      });
+      
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+      let fullAnswer = '';
+      
+      while (true) {
+        const { done, value } = await reader!.read();
+        if (done) break;
+        
+        const chunk = decoder.decode(value);
+        try {
+          const data = JSON.parse(chunk);
+          fullAnswer += data.chunk;
+          
+          // Mettre à jour le message en temps réel
+          setMessages(prev => prev.map(msg =>
+            msg.id === assistantId
+              ? { ...msg, content: fullAnswer }
+              : msg
+          ));
+        } catch (e) {
+          console.error('Erreur parsing:', e);
+        }
+      }
       
       // Initialiser le feedback pour ce message
       setFeedbacks(prev => ({
@@ -69,10 +98,11 @@ function App() {
           showComment: false,
         },
       }));
+      
     } catch (error) {
       console.error('Erreur:', error);
       setMessages(prev => [...prev, {
-        id: (Date.now() + 1).toString(),
+        id: (Date.now() + 2).toString(),
         role: 'assistant',
         content: 'Désolé, une erreur est survenue. Veuillez réessayer.',
         timestamp: new Date(),

@@ -3,7 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime, timezone
+from fastapi.responses import StreamingResponse
 
+import asyncio
+import json
 from mongo_chatbot.chatbot import CustomChatBot
 from mongo_chatbot.db import db
 
@@ -40,6 +43,16 @@ class FeedbackModel(BaseModel):
 def ask_question(data: Question):
     answer = chatbot.answer_question(data.question)
     return {"answer": answer}
+
+@app.post("/ask/stream")
+async def ask_question_stream(data: Question):
+    async def generate():
+        answer = chatbot.answer_question(data.question)
+        for char in answer:
+            yield json.dumps({"chunk": char}) + "\n"
+            await asyncio.sleep(0.03)
+    
+    return StreamingResponse(generate(), media_type="application/x-ndjson")
 
 
 @app.post("/feedback")
