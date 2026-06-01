@@ -1,0 +1,42 @@
+[
+  {
+    "message_id": "1780352592692",
+    "question": "Qui est le directeur de l'ENSAM ?",
+    "answer": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-01T22:24:06.731594+00:00"
+  },
+  {
+    "message_id": "1780353162087",
+    "question": "Qui est le directeur de l'ENSAM ?",
+    "answer": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-01T22:32:50.215038+00:00"
+  },
+  {
+    "message_id": "1780353200940",
+    "question": "Quels sont les départements de l'ENSAM ?",
+    "answer": "Voici la liste des départements de l'ENSAM :\n\n1. Économie et management\n2. Génie électrique\n3. Ingénierie des technologies de la santé\n4. Langues, communication et sciences de l'éducation\n5. Génie énergétique et environnement\n6. Mathématiques appliquées et génie informatique\n7. Génie mécanique",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-01T22:33:33.951896+00:00"
+  },
+  {
+    "message_id": "1780354658606",
+    "question": "Qui est le directeur de l'ENSAM ?",
+    "answer": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-01T22:57:43.406530+00:00"
+  },
+  {
+    "message_id": "1780354712427",
+    "question": "Quels sont les départements de l'ENSAM ?",
+    "answer": "Voici les départements de l'ENSAM :\n\n1. Économie et management\n2. Génie électrique\n3. Ingénierie des technologies de la santé\n4. Langues, communication et sciences de l'éducation\n5. Génie énergétique et environnement\n6. Mathématiques appliquées et génie informatique\n7. Génie mécanique\n\nCes départements sont mentionnés dans le contexte fourni sous la section [departements].",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-01T22:58:52.672165+00:00"
+  }
+]

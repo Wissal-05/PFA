@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Send, Bot, User, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Send, Bot, User, ThumbsUp, ThumbsDown, StopCircle, BarChart2 } from 'lucide-react';
+import Dashboard from './Dashboard';
 
 interface Message {
   id: string;
@@ -17,51 +18,68 @@ interface FeedbackEntry {
   showComment: boolean;
 }
 
+const SUGGESTED_QUESTIONS = [
+  "Qui est le directeur de l'ENSAM ?",
+  "Quelles sont les formations disponibles à l'ENSAM ?",
+  "Quels sont les départements de l'ENSAM ?",
+  "Quels sont les événements de l'ENSAM ?",
+];
+
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [feedbacks, setFeedbacks] = useState<Record<string, FeedbackEntry>>({});
+  const [showDashboard, setShowDashboard] = useState(false); // ✅ NOUVEAU
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Nouvelle fonction sendMessage avec STREAMING
-  const sendMessage = async () => {
-    if (!input.trim() || loading) return;
+  const stopStreaming = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = null;
+      setLoading(false);
+    }
+  };
+
+  const sendMessage = async (questionOverride?: string) => {
+    const question = questionOverride || input.trim();
+    if (!question || loading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
-      content: input.trim(),
+      content: question,
       timestamp: new Date(),
     };
 
     setMessages(prev => [...prev, userMessage]);
-    const currentQuestion = input.trim();
     setInput('');
     setLoading(true);
 
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     try {
-      // Créer un ID temporaire pour le message assistant
       const assistantId = (Date.now() + 1).toString();
       
-      // Ajouter un message vide qui va se remplir progressivement
       setMessages(prev => [...prev, {
         id: assistantId,
         role: 'assistant',
         content: '',
         timestamp: new Date(),
-        relatedQuestion: currentQuestion,
+        relatedQuestion: question,
       }]);
       
-      // Appel streaming vers le backend
       const response = await fetch('http://localhost:8000/ask/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: currentQuestion })
+        body: JSON.stringify({ question }),
+        signal: controller.signal,
       });
       
       const reader = response.body?.getReader();
@@ -76,8 +94,6 @@ function App() {
         try {
           const data = JSON.parse(chunk);
           fullAnswer += data.chunk;
-          
-          // Mettre à jour le message en temps réel
           setMessages(prev => prev.map(msg =>
             msg.id === assistantId
               ? { ...msg, content: fullAnswer }
@@ -88,7 +104,6 @@ function App() {
         }
       }
       
-      // Initialiser le feedback pour ce message
       setFeedbacks(prev => ({
         ...prev,
         [assistantId]: {
@@ -100,26 +115,28 @@ function App() {
       }));
       
     } catch (error) {
-      console.error('Erreur:', error);
-      setMessages(prev => [...prev, {
-        id: (Date.now() + 2).toString(),
-        role: 'assistant',
-        content: 'Désolé, une erreur est survenue. Veuillez réessayer.',
-        timestamp: new Date(),
-      }]);
+      const err = error as Error;
+      if (err.name === 'AbortError') {
+        console.log('Streaming arrêté');
+      } else {
+        console.error('Erreur:', error);
+        setMessages(prev => [...prev, {
+          id: (Date.now() + 2).toString(),
+          role: 'assistant',
+          content: 'Désolé, une erreur est survenue. Veuillez réessayer.',
+          timestamp: new Date(),
+        }]);
+      }
     } finally {
       setLoading(false);
+      abortControllerRef.current = null;
     }
   };
 
   const handleRate = (messageId: string, rating: 'positive' | 'negative') => {
     setFeedbacks(prev => ({
       ...prev,
-      [messageId]: {
-        ...prev[messageId],
-        rating,
-        showComment: true,
-      },
+      [messageId]: { ...prev[messageId], rating, showComment: true },
     }));
   };
 
@@ -153,6 +170,11 @@ function App() {
     }
   };
 
+  // ✅ Si dashboard ouvert → afficher Dashboard
+  if (showDashboard) {
+    return <Dashboard onBack={() => setShowDashboard(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
       <header className="bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200 sticky top-0 z-10">
@@ -166,6 +188,14 @@ function App() {
             </h1>
             <p className="text-xs text-gray-500">Assistant officiel de l'ENSAM Rabat</p>
           </div>
+          {/* ✅ Bouton Dashboard */}
+          <button
+            onClick={() => setShowDashboard(true)}
+            className="ml-auto flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1.5 rounded-lg hover:opacity-90 text-sm shadow-sm"
+          >
+            <BarChart2 className="w-4 h-4" />
+            Dashboard
+          </button>
         </div>
       </header>
 
@@ -176,7 +206,18 @@ function App() {
               <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
                 <Bot className="w-16 h-16 mb-4 opacity-50" />
                 <h2 className="text-xl font-semibold">Comment puis-je vous aider ?</h2>
-                <p className="text-sm mt-2">Posez une question sur l'ENSAM Rabat</p>
+                <p className="text-sm mt-2 mb-6">Posez une question sur l'ENSAM Rabat</p>
+                <div className="grid grid-cols-2 gap-3 w-full max-w-lg">
+                  {SUGGESTED_QUESTIONS.map((q, i) => (
+                    <button
+                      key={i}
+                      onClick={() => sendMessage(q)}
+                      className="text-left p-3 bg-white border border-blue-100 rounded-xl text-sm text-blue-700 hover:bg-blue-50 hover:border-blue-300 transition shadow-sm"
+                    >
+                      💬 {q}
+                    </button>
+                  ))}
+                </div>
               </div>
             ) : (
               messages.map((msg) => (
@@ -195,7 +236,6 @@ function App() {
                       {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </div>
 
-                    {/* Feedback Widget */}
                     {msg.role === 'assistant' && feedbacks[msg.id] && !feedbacks[msg.id].submitted && (
                       <div className="mt-2 pt-2 border-t border-gray-200">
                         <span className="text-xs text-gray-400">Cette réponse vous a-t-elle aidé ?</span>
@@ -273,18 +313,27 @@ function App() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+                onKeyDown={(e) => e.key === 'Enter' && !loading && sendMessage()}
                 placeholder="Message ENSAMBot..."
                 className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-sm"
                 disabled={loading}
               />
-              <button
-                onClick={sendMessage}
-                disabled={loading || !input.trim()}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-xl hover:opacity-90 disabled:opacity-50 shadow-md"
-              >
-                <Send className="w-5 h-5" />
-              </button>
+              {loading ? (
+                <button
+                  onClick={stopStreaming}
+                  className="bg-red-500 text-white px-5 py-3 rounded-xl hover:bg-red-600 shadow-md transition"
+                >
+                  <StopCircle className="w-5 h-5" />
+                </button>
+              ) : (
+                <button
+                  onClick={() => sendMessage()}
+                  disabled={!input.trim()}
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-xl hover:opacity-90 disabled:opacity-50 shadow-md"
+                >
+                  <Send className="w-5 h-5" />
+                </button>
+              )}
             </div>
           </div>
         </div>
