@@ -2,7 +2,6 @@
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
-import certifi
 
 load_dotenv()
 
@@ -13,8 +12,7 @@ if not MONGODB_URI:
 
 client = MongoClient(
     MONGODB_URI,
-    tls=True,
-    tlsCAFile=certifi.where(),      # tlsAllowInvalidCertificates removed
+    tlsAllowInvalidCertificates=True,
     serverSelectionTimeoutMS=30000,
     connectTimeoutMS=30000,
     socketTimeoutMS=30000,
@@ -26,12 +24,12 @@ db = client[db_name]
 
 def test_connection():
     try:
-        result = client.admin.command("ping")
-        print("✅ Connexion réussie à la base :", db.name)
-        try:
-            collections = db.list_collection_names()
-            print("📦 Collections disponibles :", collections)
-        except Exception as e2:
-            print("⚠️ Connecté mais liste collections échoue :", e2)
+        client.admin.command("ping")
+        print("✅ Connexion réussie :", db.name)
+        collections = db.list_collection_names()
+        print("📦 Collections :", collections)
+        for coll in collections:
+            count = db[coll].count_documents({})
+            print(f"  - {coll} : {count} documents")
     except Exception as e:
-        print("❌ Erreur de connexion :", e)
+        print("❌ Erreur :", e)

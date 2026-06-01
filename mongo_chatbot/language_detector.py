@@ -10,7 +10,7 @@ class LanguageDetector:
     def detect_language(text: str) -> str:
         """
         Détecte la langue du texte.
-        Retourne : 'fr', 'en', 'ar', ou 'fr' par défaut
+        Retourne : 'fr', 'en', 'ar', ou 'unsupported'
         """
         # Vérifier d'abord les caractères arabes
         if re.search(r'[\u0600-\u06FF]', text):
@@ -18,22 +18,17 @@ class LanguageDetector:
         
         try:
             lang = detect(text)
-            # Ne garder que les 2 premières lettres (fr, en, es, de, etc.)
             lang = lang[:2]
             
-            # Langues supportées
             if lang in ['fr', 'en', 'ar']:
                 return lang
             else:
-                return 'fr'  # Défaut français
+                return 'unsupported'  # ✅ corrigé
         except:
-            return 'fr'  # En cas d'erreur, français
+            return 'unsupported'  # ✅ corrigé
     
     @staticmethod
     def get_system_prompt(lang: str) -> str:
-        """
-        Retourne le prompt système dans la bonne langue
-        """
         prompts = {
             'fr': (
                 "Tu es ENSAMBot, un assistant virtuel officiel de l'ENSAM Rabat. "
