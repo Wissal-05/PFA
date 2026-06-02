@@ -5,7 +5,7 @@ from mongo_chatbot.chatbot import CustomChatBot
 
 bot = CustomChatBot()
 
-print("🎓 ENSAMBot prêt ! Tapez 'exit' pour quitter.\n")
+print("🎓 ENSAMIA prêt ! Tapez 'exit' pour quitter.\n")
 
 while True:
     question = input("Vous : ")

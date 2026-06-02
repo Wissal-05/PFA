@@ -38,5 +38,13 @@
     "rating": "positive",
     "comment": "",
     "created_at": "2026-06-01T22:58:52.672165+00:00"
+  },
+  {
+    "message_id": "1780418738188",
+    "question": "Qui est le directeur de l'ENSAM ?",
+    "answer": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-02T16:45:44.682210+00:00"
   }
 ]

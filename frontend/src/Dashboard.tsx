@@ -75,7 +75,7 @@ export default function Dashboard({ onBack }: DashboardProps) {
 
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-blue-800 to-indigo-600 bg-clip-text text-transparent">
-              Dashboard ENSAMBot
+              Dashboard ENSAMIA
             </h1>
             <p className="text-xs text-gray-500">
               Statistiques d'utilisation

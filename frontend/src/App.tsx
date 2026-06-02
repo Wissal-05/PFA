@@ -30,7 +30,7 @@ function App() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [feedbacks, setFeedbacks] = useState<Record<string, FeedbackEntry>>({});
-  const [showDashboard, setShowDashboard] = useState(false); // ✅ NOUVEAU
+  const [showDashboard, setShowDashboard] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
@@ -152,6 +152,12 @@ function App() {
     const msg = messages.find(m => m.id === messageId);
     if (!fb || !msg) return;
 
+    // ✅ Afficher "Merci" immédiatement sans attendre le backend
+    setFeedbacks(prev => ({
+      ...prev,
+      [messageId]: { ...prev[messageId], submitted: true },
+    }));
+
     try {
       await axios.post('http://localhost:8000/feedback', {
         message_id: messageId,
@@ -162,15 +168,9 @@ function App() {
       });
     } catch (err) {
       console.error('Erreur feedback:', err);
-    } finally {
-      setFeedbacks(prev => ({
-        ...prev,
-        [messageId]: { ...prev[messageId], submitted: true },
-      }));
     }
   };
 
-  // ✅ Si dashboard ouvert → afficher Dashboard
   if (showDashboard) {
     return <Dashboard onBack={() => setShowDashboard(false)} />;
   }
@@ -179,16 +179,15 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
       <header className="bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-indigo-600 rounded-xl flex items-center justify-center shadow-md">
-            <Bot className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md">
+            <img src="/monicon.png" alt="ENSAMIA" className="w-full h-full object-contain" />
           </div>
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-blue-800 to-indigo-600 bg-clip-text text-transparent">
-              ENSAMBot
+              ENSAMIA
             </h1>
             <p className="text-xs text-gray-500">Assistant officiel de l'ENSAM Rabat</p>
           </div>
-          {/* ✅ Bouton Dashboard */}
           <button
             onClick={() => setShowDashboard(true)}
             className="ml-auto flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1.5 rounded-lg hover:opacity-90 text-sm shadow-sm"
@@ -314,7 +313,7 @@ function App() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && !loading && sendMessage()}
-                placeholder="Message ENSAMBot..."
+                placeholder="Message ENSAMIA..."
                 className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-sm"
                 disabled={loading}
               />
