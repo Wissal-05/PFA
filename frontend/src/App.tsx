@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { Send, Bot, User, ThumbsUp, ThumbsDown, StopCircle, BarChart2 } from 'lucide-react';
+import { Send, Bot, User, ThumbsUp, ThumbsDown, StopCircle, BarChart2, LogOut } from 'lucide-react';
 import Dashboard from './Dashboard';
+import Sidebar from './Sidebar';
 
 interface Message {
   id: string;
@@ -25,18 +26,115 @@ const SUGGESTED_QUESTIONS = [
   "Quels sont les événements de l'ENSAM ?",
 ];
 
+function generateId() {
+  return Date.now().toString() + Math.random().toString(36).slice(2);
+}
+
+// ✅ Écran de connexion
+function LoginScreen({ onLogin }: { onLogin: (name: string) => void }) {
+  const [name, setName] = useState('');
+
+  const handleSubmit = () => {
+    if (name.trim()) onLogin(name.trim());
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white flex items-center justify-center">
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 w-full max-w-sm">
+        <div className="flex flex-col items-center mb-6">
+          <div className="w-16 h-16 rounded-xl overflow-hidden shadow-md mb-3">
+            <img src="/monicon.png" alt="ENSAMIA" className="w-full h-full object-contain" />
+          </div>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-800 to-indigo-600 bg-clip-text text-transparent">
+            ENSAMIA
+          </h1>
+          <p className="text-xs text-gray-500 mt-1">Assistant officiel de l'ENSAM Rabat</p>
+        </div>
+
+        <p className="text-sm text-gray-600 text-center mb-4">Entrez votre prénom pour continuer</p>
+
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+          placeholder="Votre prénom..."
+          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 text-sm mb-3"
+          autoFocus
+        />
+
+        <button
+          onClick={handleSubmit}
+          disabled={!name.trim()}
+          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl hover:opacity-90 disabled:opacity-50 text-sm font-medium shadow-md"
+        >
+          Commencer
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function App() {
+  const [username, setUsername] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [feedbacks, setFeedbacks] = useState<Record<string, FeedbackEntry>>({});
   const [showDashboard, setShowDashboard] = useState(false);
+  const [conversationId, setConversationId] = useState<string>(generateId());
+  const [sidebarRefresh, setSidebarRefresh] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  const saveConversation = useCallback((msgs: Message[], convId: string, user: string) => {
+    if (msgs.length === 0) return;
+    const lastMsg = msgs[msgs.length - 1];
+    if (lastMsg.role === 'assistant' && lastMsg.content === '') return;
+
+    const title = msgs[0].content.slice(0, 50);
+    const serializable = msgs.map(m => ({
+      ...m,
+      timestamp: m.timestamp.toISOString(),
+    }));
+
+    axios.post('http://localhost:8000/conversations/save', {
+      conversation_id: convId,
+      title,
+      messages: serializable,
+      username: user,
+    })
+      .then(() => setSidebarRefresh(prev => prev + 1))
+      .catch(err => console.error('Erreur sauvegarde:', err));
+  }, []);
+
+  const startNewConversation = () => {
+    setMessages([]);
+    setFeedbacks({});
+    setConversationId(generateId());
+    setInput('');
+  };
+
+  const loadConversation = async (id: string) => {
+    try {
+      const res = await axios.get(`http://localhost:8000/conversations/${id}`);
+      const conv = res.data;
+      if (conv.error) return;
+      const loaded: Message[] = conv.messages.map((m: Message & { timestamp: string }) => ({
+        ...m,
+        timestamp: new Date(m.timestamp),
+      }));
+      setMessages(loaded);
+      setFeedbacks({});
+      setConversationId(id);
+    } catch (err) {
+      console.error('Erreur chargement:', err);
+    }
+  };
 
   const stopStreaming = () => {
     if (abortControllerRef.current) {
@@ -57,7 +155,8 @@ function App() {
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    const updatedWithUser = [...messages, userMessage];
+    setMessages(updatedWithUser);
     setInput('');
     setLoading(true);
 
@@ -66,7 +165,7 @@ function App() {
 
     try {
       const assistantId = (Date.now() + 1).toString();
-      
+
       setMessages(prev => [...prev, {
         id: assistantId,
         role: 'assistant',
@@ -74,22 +173,22 @@ function App() {
         timestamp: new Date(),
         relatedQuestion: question,
       }]);
-      
+
       const response = await fetch('http://localhost:8000/ask/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question }),
         signal: controller.signal,
       });
-      
+
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
       let fullAnswer = '';
-      
+
       while (true) {
         const { done, value } = await reader!.read();
         if (done) break;
-        
+
         const chunk = decoder.decode(value);
         try {
           const data = JSON.parse(chunk);
@@ -103,7 +202,7 @@ function App() {
           console.error('Erreur parsing:', e);
         }
       }
-      
+
       setFeedbacks(prev => ({
         ...prev,
         [assistantId]: {
@@ -113,7 +212,19 @@ function App() {
           showComment: false,
         },
       }));
-      
+
+      const finalMessages: Message[] = [
+        ...updatedWithUser,
+        {
+          id: assistantId,
+          role: 'assistant',
+          content: fullAnswer,
+          timestamp: new Date(),
+          relatedQuestion: question,
+        }
+      ];
+      saveConversation(finalMessages, conversationId, username!);
+
     } catch (error) {
       const err = error as Error;
       if (err.name === 'AbortError') {
@@ -152,7 +263,6 @@ function App() {
     const msg = messages.find(m => m.id === messageId);
     if (!fb || !msg) return;
 
-    // ✅ Afficher "Merci" immédiatement sans attendre le backend
     setFeedbacks(prev => ({
       ...prev,
       [messageId]: { ...prev[messageId], submitted: true },
@@ -171,14 +281,19 @@ function App() {
     }
   };
 
+  // ✅ Écran de connexion
+  if (!username) {
+    return <LoginScreen onLogin={setUsername} />;
+  }
+
   if (showDashboard) {
     return <Dashboard onBack={() => setShowDashboard(false)} />;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white flex flex-col">
       <header className="bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md">
             <img src="/monicon.png" alt="ENSAMIA" className="w-full h-full object-contain" />
           </div>
@@ -188,19 +303,41 @@ function App() {
             </h1>
             <p className="text-xs text-gray-500">Assistant officiel de l'ENSAM Rabat</p>
           </div>
-          <button
-            onClick={() => setShowDashboard(true)}
-            className="ml-auto flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1.5 rounded-lg hover:opacity-90 text-sm shadow-sm"
-          >
-            <BarChart2 className="w-4 h-4" />
-            Dashboard
-          </button>
+
+          {/* ✅ Nom utilisateur + déconnexion */}
+          <div className="ml-auto flex items-center gap-3">
+            <span className="text-sm text-gray-600 font-medium">👤 {username}</span>
+            <button
+              onClick={() => setShowDashboard(true)}
+              className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1.5 rounded-lg hover:opacity-90 text-sm shadow-sm"
+            >
+              <BarChart2 className="w-4 h-4" />
+              Dashboard
+            </button>
+            <button
+              onClick={() => { setUsername(null); startNewConversation(); }}
+              className="flex items-center gap-1 text-gray-400 hover:text-red-500 text-sm transition"
+              title="Se déconnecter"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-4 py-6">
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="h-[520px] overflow-y-auto p-4 space-y-4 bg-gray-50/30">
+      <div className="flex flex-1 max-w-6xl mx-auto w-full px-4 py-6 gap-4">
+        <div className="hidden md:flex h-[580px]">
+          <Sidebar
+            currentConversationId={conversationId}
+            onSelectConversation={loadConversation}
+            onNewConversation={startNewConversation}
+            refreshTrigger={sidebarRefresh}
+            username={username}
+          />
+        </div>
+
+        <div className="flex-1 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/30 h-[460px]">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
                 <Bot className="w-16 h-16 mb-4 opacity-50" />
@@ -273,7 +410,7 @@ function App() {
                         )}
                       </div>
                     )}
-                    
+
                     {msg.role === 'assistant' && feedbacks[msg.id]?.submitted && (
                       <div className="mt-2 pt-2 text-xs text-green-500 border-t border-gray-200">
                         ✓ Merci pour votre retour !
@@ -288,7 +425,7 @@ function App() {
                 </div>
               ))
             )}
-            
+
             {loading && (
               <div className="flex gap-3 justify-start">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-700 to-indigo-600 rounded-full flex items-center justify-center">

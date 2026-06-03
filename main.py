@@ -8,6 +8,7 @@ from collections import Counter
 import asyncio
 import json
 import os
+import uuid
 
 from mongo_chatbot.chatbot import CustomChatBot
 from mongo_chatbot.language_detector import LanguageDetector
@@ -18,9 +19,9 @@ chatbot = CustomChatBot()
 
 feedback_collection = db["feedbacks"]
 
-# ✅ Fichier JSON local
 FEEDBACK_FILE = "feedbacks.json"
 QUESTIONS_FILE = "questions.json"
+CONVERSATIONS_FILE = "conversations.json"
 
 def load_json(filename):
     if os.path.exists(filename):
@@ -50,6 +51,13 @@ class FeedbackModel(BaseModel):
     rating: str
     comment: Optional[str] = ""
 
+# ✅ username ajouté
+class SaveConversationModel(BaseModel):
+    conversation_id: str
+    title: str
+    messages: list
+    username: str
+
 @app.post("/ask")
 def ask_question(data: Question):
     answer = chatbot.answer_question(data.question)
@@ -58,7 +66,6 @@ def ask_question(data: Question):
 @app.post("/ask/stream")
 async def ask_question_stream(data: Question):
     async def generate():
-        # ✅ Détecter la langue et sauvegarder la question
         lang = LanguageDetector.detect_language(data.question)
         questions = load_json(QUESTIONS_FILE)
         questions.append({
@@ -85,12 +92,10 @@ def submit_feedback(data: FeedbackModel):
         "comment": data.comment or "",
         "created_at": datetime.now(timezone.utc).isoformat(),
     }
-    # ✅ Sauvegarde JSON toujours
     feedbacks = load_json(FEEDBACK_FILE)
     feedbacks.append(doc)
     save_json(FEEDBACK_FILE, feedbacks)
 
-    # ✅ Essaye MongoDB sans planter
     try:
         doc_mongo = doc.copy()
         doc_mongo["created_at"] = datetime.now(timezone.utc)
@@ -100,21 +105,65 @@ def submit_feedback(data: FeedbackModel):
 
     return {"status": "ok"}
 
+# ✅ Sauvegarder une conversation avec username
+@app.post("/conversations/save")
+def save_conversation(data: SaveConversationModel):
+    conversations = load_json(CONVERSATIONS_FILE)
+    
+    existing = next((c for c in conversations if c["conversation_id"] == data.conversation_id), None)
+    
+    if existing:
+        existing["messages"] = data.messages
+        existing["title"] = data.title
+        existing["updated_at"] = datetime.now(timezone.utc).isoformat()
+    else:
+        conversations.append({
+            "conversation_id": data.conversation_id,
+            "title": data.title,
+            "messages": data.messages,
+            "username": data.username,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        })
+    
+    save_json(CONVERSATIONS_FILE, conversations)
+    return {"status": "ok"}
+
+# ✅ Récupérer les conversations filtrées par username
+@app.get("/conversations")
+def get_conversations(username: str):
+    conversations = load_json(CONVERSATIONS_FILE)
+    user_convs = [c for c in conversations if c.get("username") == username]
+    return [
+        {
+            "conversation_id": c["conversation_id"],
+            "title": c["title"],
+            "updated_at": c["updated_at"],
+        }
+        for c in sorted(user_convs, key=lambda x: x["updated_at"], reverse=True)
+    ]
+
+# ✅ Récupérer une conversation par ID
+@app.get("/conversations/{conversation_id}")
+def get_conversation(conversation_id: str):
+    conversations = load_json(CONVERSATIONS_FILE)
+    conv = next((c for c in conversations if c["conversation_id"] == conversation_id), None)
+    if not conv:
+        return {"error": "Conversation non trouvée"}
+    return conv
+
 @app.get("/stats")
 def get_stats():
     feedbacks = load_json(FEEDBACK_FILE)
     questions = load_json(QUESTIONS_FILE)
 
-    # Stats feedbacks
     total_feedbacks = len(feedbacks)
     positive = sum(1 for f in feedbacks if f["rating"] == "positive")
     negative = sum(1 for f in feedbacks if f["rating"] == "negative")
 
-    # Top 5 questions
     question_texts = [f["question"] for f in feedbacks]
     top_questions = Counter(question_texts).most_common(5)
 
-    # Langues
     langs = [q["lang"] for q in questions]
     lang_counter = Counter(langs)
     total_langs = len(langs) or 1
@@ -124,7 +173,6 @@ def get_stats():
         "ar": round(lang_counter.get("ar", 0) / total_langs * 100),
     }
 
-    # Derniers feedbacks
     last_feedbacks = feedbacks[-5:][::-1]
 
     return {

@@ -1,0 +1,162 @@
+[
+  {
+    "conversation_id": "1780439200099ot3kt2abvj",
+    "title": "Qui est le directeur de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780439201892",
+        "role": "user",
+        "content": "Qui est le directeur de l'ENSAM ?",
+        "timestamp": "2026-06-02T22:26:41.893Z"
+      },
+      {
+        "id": "1780439201894",
+        "role": "assistant",
+        "content": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+        "timestamp": "2026-06-02T22:26:44.637Z",
+        "relatedQuestion": "Qui est le directeur de l'ENSAM ?"
+      }
+    ],
+    "created_at": "2026-06-02T22:26:44.653776+00:00",
+    "updated_at": "2026-06-02T22:26:44.653776+00:00"
+  },
+  {
+    "conversation_id": "1780439304851lfoszczd5b",
+    "title": "Quels sont les départements de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780439306610",
+        "role": "user",
+        "content": "Quels sont les départements de l'ENSAM ?",
+        "timestamp": "2026-06-02T22:28:26.610Z"
+      },
+      {
+        "id": "1780439306612",
+        "role": "assistant",
+        "content": "Voici les départements de l'ENSAM :\n\n1. Économie et management\n2. Génie électrique\n3. Ingénierie des technologies de la santé\n4. Langues, communication et sciences de l'éducation\n5. Génie énergétique et environnement\n6. Mathématiques appliquées et génie informatique\n7. Génie mécanique",
+        "timestamp": "2026-06-02T22:28:37.456Z",
+        "relatedQuestion": "Quels sont les départements de l'ENSAM ?"
+      }
+    ],
+    "created_at": "2026-06-02T22:28:37.465238+00:00",
+    "updated_at": "2026-06-02T22:28:37.465238+00:00"
+  },
+  {
+    "conversation_id": "1780440488156n49sjkvb6es",
+    "title": "Qui est le directeur de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780440659365",
+        "role": "user",
+        "content": "Qui est le directeur de l'ENSAM ?",
+        "timestamp": "2026-06-02T22:50:59.365Z"
+      },
+      {
+        "id": "1780440659366",
+        "role": "assistant",
+        "content": "Le directeur de l'ENSAM Rabat est le Pr. Samir BELFKIH.",
+        "timestamp": "2026-06-02T22:51:02.018Z",
+        "relatedQuestion": "Qui est le directeur de l'ENSAM ?"
+      },
+      {
+        "id": "1780444839837",
+        "role": "user",
+        "content": "Quel est l'email de Pr. Lotfi ?",
+        "timestamp": "2026-06-03T00:00:39.837Z"
+      },
+      {
+        "id": "1780444839838",
+        "role": "assistant",
+        "content": "L'email du Pr. El Mostapha LOTFI est : el-mostapha.lotfi@ensam.um5.ac.ma. Il occupe le rôle de Directeur Adjoint chargé de la Recherche Scientifique et de la Coopération.",
+        "timestamp": "2026-06-03T00:00:39.838Z",
+        "relatedQuestion": "Quel est l'email de Pr. Lotfi ?"
+      },
+      {
+        "id": "1780444862282",
+        "role": "user",
+        "content": "Quelles sont les formations disponibles à l'ENSAM ?",
+        "timestamp": "2026-06-03T00:01:02.282Z"
+      },
+      {
+        "id": "1780444862283",
+        "role": "assistant",
+        "content": "Voici les formations disponibles à l'ENSAM :\n\n**Classes Préparatoires** : Classes Préparatoires\n**Cycle Ingénieur** :\n- ÉNERGIE ÉLECTRIQUE ET INDUSTRIE NUMÉRIQUE\n- GÉNIE BIOMÉDICAL\n- GÉNIE INDUSTRIEL ET TECHNOLOGIES NUMÉRIQUES\n- GÉNIE DES MATÉRIAUX, QUALITÉ ET ENVIRONNEMENT\n- INGÉNIEUR GÉNIE MÉCANIQUE\n- INGÉNIEURIE MÉCANIQUE POUR L’INDUSTRIE AÉRONAUTIQUE\n- INGÉNIERIE NUMÉRIQUE EN DATA SCIENCE, INTELLIGENCE ARTIFICIELLE & SANTÉ DIGITALE\n- INGÉNIERIE DES SYSTÈMES ENERGÉTIQUES\n**Master** :\n- MASTER EN MÉCANIQUE AVANCÉE\n- MASTER MANAGEMENT DE L’INNOVATION ET DE LA TECHNOLOGIE",
+        "timestamp": "2026-06-03T00:01:21.898Z",
+        "relatedQuestion": "Quelles sont les formations disponibles à l'ENSAM ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-02T22:51:02.022598+00:00",
+    "updated_at": "2026-06-03T00:01:21.900607+00:00"
+  },
+  {
+    "conversation_id": "1780444945365ydtoccdfmui",
+    "title": "Qui est le directeur de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780444948436",
+        "role": "user",
+        "content": "Qui est le directeur de l'ENSAM ?",
+        "timestamp": "2026-06-03T00:02:28.436Z"
+      },
+      {
+        "id": "1780444948437",
+        "role": "assistant",
+        "content": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+        "timestamp": "2026-06-03T00:02:30.690Z",
+        "relatedQuestion": "Qui est le directeur de l'ENSAM ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T00:02:30.693538+00:00",
+    "updated_at": "2026-06-03T00:02:30.693538+00:00"
+  },
+  {
+    "conversation_id": "1780444961044tpkg1fi4s3m",
+    "title": "Quels sont les départements de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780444971290",
+        "role": "user",
+        "content": "Quels sont les départements de l'ENSAM ?",
+        "timestamp": "2026-06-03T00:02:51.290Z"
+      },
+      {
+        "id": "1780444971291",
+        "role": "assistant",
+        "content": "Voici les départements de l'ENSAM :\n\n1. Économie et management\n2. Génie électrique\n3. Ingénierie des technologies de la santé\n4. Langues, communication et sciences de l'éducation\n5. Génie énergétique et environnement\n6. Mathématiques appliquées et génie informatique\n7. Génie mécanique",
+        "timestamp": "2026-06-03T00:03:01.017Z",
+        "relatedQuestion": "Quels sont les départements de l'ENSAM ?"
+      },
+      {
+        "id": "1780445032363",
+        "role": "user",
+        "content": "Quels sont les masters disponibles à l'ENSAM ?",
+        "timestamp": "2026-06-03T00:03:52.363Z"
+      },
+      {
+        "id": "1780445032364",
+        "role": "assistant",
+        "content": "Voici les masters disponibles à l'ENSAM :\n\n- MASTER EN MÉCANIQUE AVANCÉE\n- MASTER MANAGEMENT DE L’INNOVATION ET DE LA TECHNOLOGIE",
+        "timestamp": "2026-06-03T00:03:52.364Z",
+        "relatedQuestion": "Quels sont les masters disponibles à l'ENSAM ?"
+      },
+      {
+        "id": "1780445068488",
+        "role": "user",
+        "content": "What's the point of the mechanical master's advance?",
+        "timestamp": "2026-06-03T00:04:28.488Z"
+      },
+      {
+        "id": "1780445068490",
+        "role": "assistant",
+        "content": "The point of the Master in Advanced Mechanics is to form senior executives in research and development in the mechanical engineering sector, requiring high-level knowledge and skills in mechanical analysis and modeling (modeling, numerical simulations, and experimental methods). \n\nThis master's degree aims to prepare students for:\n\n- Research careers to pursue a doctorate\n- Research and development positions in the aeronautics, transport, and automotive sectors (ALTRAN, SAFRAN, MADREX, etc.)\n\nThe master's degree is coordinated by Pr. LAGHZAL NOREDINE.",
+        "timestamp": "2026-06-03T00:04:47.122Z",
+        "relatedQuestion": "What's the point of the mechanical master's advance?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T00:03:01.022269+00:00",
+    "updated_at": "2026-06-03T00:04:47.123953+00:00"
+  }
+]
