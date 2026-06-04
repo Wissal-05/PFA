@@ -16,36 +16,45 @@ UNSUPPORTED_LANG_MESSAGE = (
 
 COLLECTION_KEYWORDS = {
     'formations': [
-        'formation', 'cycle', 'master', 'préparatoire', 'ingénieur',
-        'débouché', 'coordonnateur', 'aéronautique', 'mécanique',
-        'biomédical', 'industriel', 'data science', 'énergie', 'matériaux',
-        'électrique', 'énergétique', 'filière', 'cursus', 'programme'
+        'formation', 'cycle', 'master', 'préparatoire', 'préparatoires',
+        'ingénieur', 'débouché', 'coordonnateur', 'coordinateur',
+        'aéronautique', 'mécanique', 'biomédical', 'industriel',
+        'data science', 'énergie', 'matériaux', 'électrique',
+        'énergétique', 'filière', 'cursus', 'programme',
+        'objectif', 'débouchés', 'email coordinateur'
     ],
     'departements': [
-        'département', 'departement'
+        'département', 'departement', 'départements', 'departements'
     ],
     'evenements': [
-        'événement', 'evenement', 'robotics', 'conférence', 'conference',
-        'symposium', 'journée', 'cérémonie', 'ceremonie', 'diplôme',
-        'innov', 'cistem', 'ieee', 'doctoriale', 'biomasse', 'mathematica',
-        'stage', 'pfe', '3dexperience', 'hongrie', 'rennes'
+        'événement', 'evenement', 'événements', 'evenements',
+        'robotics', 'conférence', 'conference', 'symposium',
+        'journée', 'cérémonie', 'ceremonie', 'diplôme',
+        'innov', 'cistem', 'ieee', 'doctoriale', 'biomasse',
+        'mathematica', 'stage', 'pfe', '3dexperience', 'hongrie', 'rennes',
+        'activité', 'activités', 'manifestation'
     ],
     'gouvernance': [
         'directeur', 'email', 'secrétaire', 'adjoint', 'assistante',
-        'responsable', 'gouvernance', 'administration', 'pr.', 'professeur'
+        'responsable', 'gouvernance', 'administration', 'pr.',
+        'professeur', 'contact', 'qui est', 'chef', 'doyen'
     ],
     'description_ecole': [
         'ensam', 'école', 'université', 'approche', 'pédagogique',
-        'learning by doing', 'objectif', 'présentation'
+        'learning by doing', 'objectif', 'présentation', 'histoire',
+        'campus', 'localisation', 'adresse'
     ]
 }
 
-def detect_collection(question: str) -> str | None:
+
+def detect_collections(question: str) -> list:
     question_lower = question.lower()
+    scores = {}
     for collection, keywords in COLLECTION_KEYWORDS.items():
-        if any(kw in question_lower for kw in keywords):
-            return collection
-    return None
+        score = sum(1 for kw in keywords if kw in question_lower)
+        if score > 0:
+            scores[collection] = score
+    return sorted(scores, key=scores.get, reverse=True)
 
 
 class CustomChatBot:
@@ -54,7 +63,7 @@ class CustomChatBot:
             model_name="llama-3.1-8b-instant",
             api_key=GROQ_API_KEY,
             temperature=0.2,
-            max_tokens=2048  # ✅ augmenté
+            max_tokens=2048
         )
 
     def answer_question(self, question: str) -> str:
@@ -67,15 +76,18 @@ class CustomChatBot:
             print("🚫 Langue non supportée")
             return UNSUPPORTED_LANG_MESSAGE
 
-        # 3. Récupération du contexte
-        docs = search_global_documents(question, k=20)
+        # 3. Récupération du contexte vectoriel (k=5 pour la vitesse)
+        docs = search_global_documents(question, k=5)
 
-        # 4. Ajouter TOUS les documents de la collection pertinente
-        collection = detect_collection(question)
-        if collection:
-            print(f"📁 Collection détectée : {collection}")
-            extra_docs = get_all_documents_by_source(collection)
-            docs = docs + extra_docs
+        # 4. Ajouter les documents de TOUTES les collections pertinentes
+        collections = detect_collections(question)
+        if collections:
+            print(f"📁 Collections détectées : {collections}")
+            for col in collections:
+                extra_docs = get_all_documents_by_source(col)
+                docs = docs + extra_docs[:5]
+        else:
+            print("📁 Aucune collection détectée")
 
         # 5. Dédupliquer
         seen = set()
@@ -85,11 +97,13 @@ class CustomChatBot:
                 seen.add(doc.page_content)
                 unique_docs.append(doc)
 
+        unique_docs = unique_docs[:15]
         print(f"📄 Documents uniques : {len(unique_docs)}")
 
         context = "\n\n---\n\n".join(
             f"[{d.metadata['source']}]\n{d.page_content}" for d in unique_docs
         )
+        context = context[:4000]
 
         # 6. Prompt système
         system = LanguageDetector.get_system_prompt(lang)
@@ -110,7 +124,10 @@ IMPORTANT :
 - Ne dis jamais qu'il pourrait y avoir d'autres informations""")
         ]
 
-        response = self.llm.invoke(messages).content
-        print(f"💬 Réponse ({lang}) : {response[:100]}...")
-
-        return response
+        try:
+            response = self.llm.invoke(messages).content
+            print(f"💬 Réponse ({lang}) : {response[:100]}...")
+            return response
+        except Exception as e:
+            print(f"❌ Erreur LLM : {str(e)}")
+            return f"Erreur : {str(e)}"

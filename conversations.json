@@ -105,11 +105,24 @@
         "content": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
         "timestamp": "2026-06-03T00:02:30.690Z",
         "relatedQuestion": "Qui est le directeur de l'ENSAM ?"
+      },
+      {
+        "id": "1780526496964",
+        "role": "user",
+        "content": "Qui est le directeur adjoint des affaires pédagogiques ?",
+        "timestamp": "2026-06-03T22:41:36.964Z"
+      },
+      {
+        "id": "1780526496965",
+        "role": "assistant",
+        "content": "Le directeur adjoint chargé des affaires pédagogiques est :\n\nPr. Malika ZAZI.",
+        "timestamp": "2026-06-03T22:41:39.996Z",
+        "relatedQuestion": "Qui est le directeur adjoint des affaires pédagogiques ?"
       }
     ],
     "username": "Yousra",
     "created_at": "2026-06-03T00:02:30.693538+00:00",
-    "updated_at": "2026-06-03T00:02:30.693538+00:00"
+    "updated_at": "2026-06-03T22:41:39.995530+00:00"
   },
   {
     "conversation_id": "1780444961044tpkg1fi4s3m",
@@ -158,5 +171,440 @@
     "username": "Yousra",
     "created_at": "2026-06-03T00:03:01.022269+00:00",
     "updated_at": "2026-06-03T00:04:47.123953+00:00"
+  },
+  {
+    "conversation_id": "1780525794542v21u7gbj17c",
+    "title": "Qui est le directeur de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780525795586",
+        "role": "user",
+        "content": "Qui est le directeur de l'ENSAM ?",
+        "timestamp": "2026-06-03T22:29:55.586Z"
+      },
+      {
+        "id": "1780525795587",
+        "role": "assistant",
+        "content": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+        "timestamp": "2026-06-03T22:29:57.553Z",
+        "relatedQuestion": "Qui est le directeur de l'ENSAM ?"
+      },
+      {
+        "id": "1780525823105",
+        "role": "user",
+        "content": "Qui est le coordonnateur du génie industriel ?",
+        "timestamp": "2026-06-03T22:30:23.105Z"
+      },
+      {
+        "id": "1780525823106",
+        "role": "assistant",
+        "content": "Le coordonnateur du génie industriel est Pr. JALID Abdelilah.",
+        "timestamp": "2026-06-03T22:30:31.246Z",
+        "relatedQuestion": "Qui est le coordonnateur du génie industriel ?"
+      },
+      {
+        "id": "1780525915087",
+        "role": "user",
+        "content": "C'est quoi l'ENSAM ?",
+        "timestamp": "2026-06-03T22:31:55.087Z"
+      },
+      {
+        "id": "1780525915088",
+        "role": "assistant",
+        "content": "L'ENSAM, également connue sous le nom de l'École Nationale Supérieure d'Arts et Métiers de Rabat, est une école d'ingénieurs située à Rabat, au Maroc. Elle fait partie de l'Université Mohammed V de Rabat.\n\nL'école propose des formations en ingénierie, avec des équipes pédagogiques dynamiques et compétentes qui accompagnent les étudiants dans leurs projets. Les approches pédagogiques utilisées incluent l'approche par compétences et le \"Learning by doing\".\n\nL'ENSAM Rabat a accueilli divers événements et compétitions, notamment la compétition interne d'ENACTUS, The Great Debaters, les Olympiades de l'INPT, et le Hult Prize. L'école a également accueilli des délégations étrangères, comme celle du Beijing Institute of Technology (BIT) - Chine.\n\nL'ENSAM Rabat est fière de son engagement envers l'innovation, la solidarité et la formation des futurs ingénieurs.",
+        "timestamp": "2026-06-03T22:32:24.169Z",
+        "relatedQuestion": "C'est quoi l'ENSAM ?"
+      },
+      {
+        "id": "1780526021388",
+        "role": "user",
+        "content": "C'est quoi le learning by doing ?",
+        "timestamp": "2026-06-03T22:33:41.388Z"
+      },
+      {
+        "id": "1780526021389",
+        "role": "assistant",
+        "content": "Le \"Learning by doing\" est une approche pédagogique utilisée par l'ENSAM Rabat, comme indiqué dans la description de l'école. Cette approche consiste à apprendre en pratiquant, c'est-à-dire en effectuant des activités concrètes et en résolvant des problèmes réels, plutôt que de se limiter à la théorie et aux cours traditionnels.\n\nCette approche est mentionnée dans la section \"Approches pédagogiques\" de la description de l'école, où il est écrit : \"Approche par compétences, Learning by doing\". Cela suggère que l'ENSAM Rabat encourage les étudiants à apprendre en pratiquant et en développant leurs compétences, plutôt que de se concentrer uniquement sur la théorie.",
+        "timestamp": "2026-06-03T22:33:41.388Z",
+        "relatedQuestion": "C'est quoi le learning by doing ?"
+      },
+      {
+        "id": "1780526066625",
+        "role": "user",
+        "content": "C'est quoi le club RobotiCore ?",
+        "timestamp": "2026-06-03T22:34:26.625Z"
+      },
+      {
+        "id": "1780526066626",
+        "role": "assistant",
+        "content": "Le club RobotiCore est un club étudiant de l'ENSAM Rabat qui a marqué le coup d'envoi d'Innov4Talent à Orange digital center le 26 février. Ce club est composé de 5 équipes qui ont participé à des ateliers interactifs autour des défis et opportunités de l'Industrie 4.0, avec un focus sur Raspberry Pi et son immense potentiel en automatisation, IoT et robotique. Les étudiants du club RobotiCore sont motivés et entrent en phase de prototypage pour transformer leurs idées en solutions concrètes.",
+        "timestamp": "2026-06-03T22:34:43.930Z",
+        "relatedQuestion": "C'est quoi le club RobotiCore ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T22:29:57.560851+00:00",
+    "updated_at": "2026-06-03T22:34:43.932032+00:00"
+  },
+  {
+    "conversation_id": "1780526882022806hekjgtnd",
+    "title": "Qui est le secrétaire général ?",
+    "messages": [
+      {
+        "id": "1780526911860",
+        "role": "user",
+        "content": "Qui est le secrétaire général ?",
+        "timestamp": "2026-06-03T22:48:31.860Z"
+      },
+      {
+        "id": "1780526911861",
+        "role": "assistant",
+        "content": "Le Secrétaire Général est Mr. Achraf BELLAOUCHOU.",
+        "timestamp": "2026-06-03T22:48:31.861Z",
+        "relatedQuestion": "Qui est le secrétaire général ?"
+      },
+      {
+        "id": "1780526932358",
+        "role": "user",
+        "content": "Qui est responsable du département mathématiques appliquées ?",
+        "timestamp": "2026-06-03T22:48:52.358Z"
+      },
+      {
+        "id": "1780526932359",
+        "role": "assistant",
+        "content": "Le responsable du département \"Mathématiques appliquées et Génie Informatique\" est le Pr. Lahcen AZRAR.",
+        "timestamp": "2026-06-03T22:48:56.115Z",
+        "relatedQuestion": "Qui est responsable du département mathématiques appliquées ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T22:48:34.239927+00:00",
+    "updated_at": "2026-06-03T22:48:56.120042+00:00"
+  },
+  {
+    "conversation_id": "17805271265786yr1osti6tp",
+    "title": "Qui est responsable du département langues et comm",
+    "messages": [
+      {
+        "id": "1780527140718",
+        "role": "user",
+        "content": "Qui est responsable du département langues et communication ?",
+        "timestamp": "2026-06-03T22:52:20.718Z"
+      },
+      {
+        "id": "1780527140719",
+        "role": "assistant",
+        "content": "Le responsable du département \"langues, communication et sciences de l'éducation\" est :\n\n- Pr. Ilham SADOQI\n- Email : Ilham.sadoqi@ensam.um5.ac.ma",
+        "timestamp": "2026-06-03T22:52:20.718Z",
+        "relatedQuestion": "Qui est responsable du département langues et communication ?"
+      },
+      {
+        "id": "1780527162617",
+        "role": "user",
+        "content": "Qui est l'assistante de direction ?",
+        "timestamp": "2026-06-03T22:52:42.617Z"
+      },
+      {
+        "id": "1780527162618",
+        "role": "assistant",
+        "content": "L'assistante de direction de l'ENSAM Rabat est Mme Souad EL BOUKILI.",
+        "timestamp": "2026-06-03T22:52:42.618Z",
+        "relatedQuestion": "Qui est l'assistante de direction ?"
+      },
+      {
+        "id": "1780527180691",
+        "role": "user",
+        "content": "Quelles sont les formations disponibles à l'ENSAM ?",
+        "timestamp": "2026-06-03T22:53:00.691Z"
+      },
+      {
+        "id": "1780527180692",
+        "role": "assistant",
+        "content": "Voici les formations disponibles à l'ENSAM :\n\n**Classes Préparatoires** : Classes Préparatoires\n**Cycle Ingénieur** :\n- ÉNERGIE ÉLECTRIQUE ET INDUSTRIE NUMÉRIQUE\n- GÉNIE BIOMÉDICAL\n- GÉNIE INDUSTRIEL ET TECHNOLOGIES NUMÉRIQUES\n- GÉNIE DES MATÉRIAUX, QUALITÉ ET ENVIRONNEMENT\n- INGÉNIEUR GÉNIE MÉCANIQUE\n- INGÉNIEURIE MÉCANIQUE POUR L’INDUSTRIE AÉRONAUTIQUE\n- INGÉNIERIE NUMÉRIQUE EN DATA SCIENCE, INTELLIGENCE ARTIFICIELLE & SANTÉ DIGITALE\n- INGÉNIERIE DES SYSTÈMES ENERGÉTIQUES\n**Master** :\n- MASTER EN MÉCANIQUE AVANCÉE\n- MASTER MANAGEMENT DE L’INNOVATION ET DE LA TECHNOLOGIE",
+        "timestamp": "2026-06-03T22:53:19.973Z",
+        "relatedQuestion": "Quelles sont les formations disponibles à l'ENSAM ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T22:52:25.811942+00:00",
+    "updated_at": "2026-06-03T22:53:19.977491+00:00"
+  },
+  {
+    "conversation_id": "1780528041723k13r4lw9qlp",
+    "title": "Quels sont les événements de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780528044134",
+        "role": "user",
+        "content": "Quels sont les événements de l'ENSAM ?",
+        "timestamp": "2026-06-03T23:07:24.134Z"
+      },
+      {
+        "id": "1780528044136",
+        "role": "assistant",
+        "content": "Voici la liste des événemende l'ENSAM :\n\n1. Accueil d'une compétition interne d’ENACTUS - ENSAM RABAT\n2. Les moments forts de la demi-journée d'information organisée par l'ENSAM Rabat\n3. Découvrez la vidéo résumant les moments forts de la cérémonie d'ouverture des Olympiades de l'ENSAM Rabat\n4. La présence de l’ENSAM Rabat au SIEL MAROC 2025\n5.ccueil d'une conférence intitulée \"stratégies d’innovation, de veille technologique et de transformation digitale\" orchestrée par le club inextLab\n6. Accueil d’une Délégation Inter-INP pour une Semaine d’Échanges Innovants\n7. إستضافت المدرسة الوطنية العليا للفنون والمهن بالرباط حفل اختتام النسخة الثامنة من قافلة البسمة",
+        "timestamp": "2026-06-03T23:07:24.135Z",
+        "relatedQuestion": "Quels sont les événements de l'ENSAM ?"
+      },
+      {
+        "id": "1780528302707",
+        "role": "user",
+        "content": "Quels sont les débouchés du master mécanique avancée ?",
+        "timestamp": "2026-06-03T23:11:42.707Z"
+      },
+      {
+        "id": "1780528302708",
+        "role": "assistant",
+        "content": "Les débouchés du master en Mécanique Avancée sont :\n\n- Préparer les étudiants aux métiers de recherches pour poursuivre des études en cycle de doctorat\n- Intégrer les métiers de l'ingénieur en recherche et développement dans les secteurs de l'aéronautique, le transport et l'automobile (ALTRAN, SAFRAN, MADREX, etc…).",
+        "timestamp": "2026-06-03T23:11:42.708Z",
+        "relatedQuestion": "Quels sont les débouchés du master mécanique avancée ?"
+      },
+      {
+        "id": "1780528414895",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:13:34.895Z"
+      },
+      {
+        "id": "1780528414896",
+        "role": "assistant",
+        "content": "Je n'ai pas trouvé d'information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:13:34.896Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780528491806",
+        "role": "user",
+        "content": "C'est quoi le département langues et communication ?",
+        "timestamp": "2026-06-03T23:14:51.806Z"
+      },
+      {
+        "id": "1780528491807",
+        "role": "assistant",
+        "content": "Le département Langues, Communication et Sciences de l'Éducation est un département de l'ENSAM Rabat.",
+        "timestamp": "2026-06-03T23:14:51.807Z",
+        "relatedQuestion": "C'est quoi le département langues et communication ?"
+      },
+      {
+        "id": "1780528569148",
+        "role": "user",
+        "content": "'est quoi la conférence sur Mathematica ?",
+        "timestamp": "2026-06-03T23:16:09.148Z"
+      },
+      {
+        "id": "1780528569149",
+        "role": "assistant",
+        "content": "La conférence sur Mathematica s'est déroulée les 13 et 14 décembre 2023. Elle a été organisée par le département de Mathématiques Appliquées et Génie Informatique de l'ENSAM Rabat. Cette formation exclusive a été animée par M. Alex Upellini de chez Wolfram et était destinée aux enseignants et aux doctorants. L'objectif de cette conférence était de partager les connaissances et les compétences nécessaires pour maîtriser Mathematica de manière efficace, notamment pour intégrer cet outil dans les enseignements et les applications de recherche.\n\nVoici les détails  la conférence :\n\n- Date : 13 et 14 décembre 2023\n- Organisateur : Département de Mathématiques Appliquées et Génie Informatique\n- Animateur : M. Alex Upellini (Wolfram)\n- Public cible : Enseignants et doctorants\n- Objectif : Maîtriser Mathematica de manière efficace",
+        "timestamp": "2026-06-03T23:16:09.149Z",
+        "relatedQuestion": "'est quoi la conférence sur Mathematica ?"
+      },
+      {
+        "id": "1780528685825",
+        "role": "user",
+        "content": "Quelle est l'université de rattachement de l'ENSAM ?",
+        "timestamp": "2026-06-03T23:18:05.825Z"
+      },
+      {
+        "id": "1780528685826",
+        "role": "assistant",
+        "content": "L'université de rattachement de l'ENSAM est l'Université de Rennes.",
+        "timestamp": "2026-06-03T23:18:05.826Z",
+        "relatedQuestion": "Quelle est l'université de rattachement de l'ENSAM ?"
+      },
+      {
+        "id": "1780529101073",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:25:01.073Z"
+      },
+      {
+        "id": "1780529101074",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:25:01.074Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780529169106",
+        "role": "user",
+        "content": "Quelle est l'approche pédagogique de l'ENSAM ?",
+        "timestamp": "2026-06-03T23:26:09.106Z"
+      },
+      {
+        "id": "1780529169107",
+        "role": "assistant",
+        "content": "L'approche pédagogique de l'ENSAM est basée sur deux approches :\n\n1. **Approche par compétences** : Cette approche permet aux étudiants d'acquérir des compétences spécifiques et ciblées pour leur insertion professionnelle.\n2. **Learning by doing** : Cette approche consiste à apprendre par la pratique et l'expérience, ce qui permet aux étudiants de développer leurs compétences de manière active et efficace.",
+        "timestamp": "2026-06-03T23:26:09.107Z",
+        "relatedQuestion": "Quelle est l'approche pédagogique de l'ENSAM ?"
+      },
+      {
+        "id": "1780529234458",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:27:14.458Z"
+      },
+      {
+        "id": "1780529234459",
+        "role": "assistant",
+        "content": "Je n'ai pas trouvé d'information sur les classes préparatoires dans le contexte fourni. Les informations fournies concernent les formations de cycle ingénieur.",
+        "timestamp": "2026-06-03T23:27:14.459Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780529261372",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:27:41.372Z"
+      },
+      {
+        "id": "1780529261373",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:27:41.372Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780529524790",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:32:04.790Z"
+      },
+      {
+        "id": "1780529524791",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:32:04.790Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780529834527",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:37:14.527Z"
+      },
+      {
+        "id": "1780529834528",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:37:19.830Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780530563779",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:49:23.779Z"
+      },
+      {
+        "id": "1780530563780",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:49:28.543Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      },
+      {
+        "id": "1780530928525",
+        "role": "user",
+        "content": "Qui est le coordonnateur des classes préparatoires ?",
+        "timestamp": "2026-06-03T23:55:28.525Z"
+      },
+      {
+        "id": "1780530928526",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:55:32.343Z",
+        "relatedQuestion": "Qui est le coordonnateur des classes préparatoires ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T23:08:42.159324+00:00",
+    "updated_at": "2026-06-03T23:55:32.347101+00:00"
+  },
+  {
+    "conversation_id": "17805309347699saxftejjm",
+    "title": "Quels sont les événements de l'ENSAM ?",
+    "messages": [
+      {
+        "id": "1780530937001",
+        "role": "user",
+        "content": "Quels sont les événements de l'ENSAM ?",
+        "timestamp": "2026-06-03T23:55:37.001Z"
+      },
+      {
+        "id": "1780530937002",
+        "role": "assistant",
+        "content": "Voici les événements de l'ENSAM :\n\n1. Accueil d'une compétition interne d’ENACTUS - ENSAM RABAT (le samedi 8 mars)\n2. Les moments forts de la demi-journée d'information organisée par l'ENSAM Rabat (le mercredi 22 janvier 2025)\n3. Découvrez la vidéo résumant les moments forts de la cérémonie d'ouverture des Olympiades de l'ENSAM Rabat (pas de date spécifiée)\n4. L’ENSAM Rabat au SIEL 2025 (le lundi 21 avril 2025)\n5. The Great Debaters ont une fois de plus porté haut les couleurs de l’ENSAM Rabat à l’échelle nationale ! (pas de date spécifiée)\n6. Conférence de Haut Niveau à l'ENSAM Rabat : Vision stratégique sur l'essor industriel du Maroc avec M. Ryad MEZZOUR (mardi 25 Mars)\n7. Partenariat stratégique entre l'ENSAM Rabat et TDM Aerospace pour l’Industrie Aéronautique (le 12, pas de mois spécifié)",
+        "timestamp": "2026-06-03T23:56:03.942Z",
+        "relatedQuestion": "Quels sont les événements de l'ENSAM ?"
+      },
+      {
+        "id": "1780530991722",
+        "role": "user",
+        "content": "Quels sont les objectifs pédagogiques de l'ENSAM ?",
+        "timestamp": "2026-06-03T23:56:31.722Z"
+      },
+      {
+        "id": "1780530991723",
+        "role": "assistant",
+        "content": "Les objectifs pédagogiques de l'ENSAM sont les suivants :\n\n- Acquérir les connaissances fondamentales en mathématiques, physique et chimie, ainsi que les outils généraux en sciences de l'ingénieur.\n- Approfondir ces matières pour développer une solide base de connaissances techniques et scientifiques.\n- Renforcer l'autonomie et le savoir-faire méthodologique des étudiants.\n- Développer les compétences informatiques.\n- Favoriser la capacité à mener des projets de manière indépendante et à résoudre des problèmes complexes.\n- Cultiver la rigueur de raisonnement et de travail.\n\nCes objectifs sont visés dans les différentes formations proposées par l'ENSAM, notamment les Classes Préparatoires et le Master en Management de l'Innovation et de la Technologie.",
+        "timestamp": "2026-06-03T23:56:31.723Z",
+        "relatedQuestion": "Quels sont les objectifs pédagogiques de l'ENSAM ?"
+      },
+      {
+        "id": "1780531055220",
+        "role": "user",
+        "content": "C'est quoi la plateforme 3DEXPERIENCE ?",
+        "timestamp": "2026-06-03T23:57:35.220Z"
+      },
+      {
+        "id": "1780531055221",
+        "role": "assistant",
+        "content": "Je n'ai trouvé aucune information sur la plateforme 3DEXPERIENCE dans le contexte fourni.",
+        "timestamp": "2026-06-03T23:57:35.220Z",
+        "relatedQuestion": "C'est quoi la plateforme 3DEXPERIENCE ?"
+      },
+      {
+        "id": "1780531070294",
+        "role": "user",
+        "content": "C'est quoi la rencontre stage entreprise PFE 2024 ?",
+        "timestamp": "2026-06-03T23:57:50.294Z"
+      },
+      {
+        "id": "1780531070295",
+        "role": "assistant",
+        "content": "La Rencontre Stage Entreprise dans le cadre de la Campagne PFE 2024 s'est déroulée le Mercredi 20 décembre 2023 à l'École Nationale Supérieure des Arts et Métiers de Rabat. Cette journée a permis aux étudiants de troisième année d'explorer des opportunités de stage captivantes et d'échanger directement avec des représentants d'entreprises de renom. Les entreprises partenaires ont présenté des opportunités de stage stimulantes et partagé leurs connaissances avec les futurs professionnels de l'ENSAM Rabat.\n\nCette rencontre a permis aux étudiants de mieux comprendre les exigences du monde du travail et d'explorer les diverses possibilités qui s'offrent à eux. L'ENSAM Rabat tient à remercier chaleureusement les étudiants, les représentants d'entreprises et tous les acteurs impliqués dans l'organisation de cet événement mémorable.",
+        "timestamp": "2026-06-03T23:57:50.295Z",
+        "relatedQuestion": "C'est quoi la rencontre stage entreprise PFE 2024 ?"
+      },
+      {
+        "id": "1780531150278",
+        "role": "user",
+        "content": "Y a-t-il une coopération entre le Maroc et la Hongrie ?",
+        "timestamp": "2026-06-03T23:59:10.278Z"
+      },
+      {
+        "id": "1780531150279",
+        "role": "assistant",
+        "content": "Oui, il existe une coopération entre le Maroc et la Hongrie. Cette coopération a été mise en avant lors de la réunion de travail, axée sur la Coopération en Recherche et Développement entre le Maroc et la Hongrie, qui s'est tenue le 07 mai 2024 à l'ENSAM Rabat. Cette réunion a réaffirmé l'engagement de l'ENSAM Rabat envers la collaboration internationale et l'excellence académique.\n\nL'objectif principal de cette réunion était de discuter du projet de recherche et développement appliqué, mettant en avant les compétences complémentaires et la détermination à collaborer pour faire progresser la science. Les chercheurs marocains et hongrois ont partagé leurs idées et perspectives dans le domaine des énergies renouvelables.\n\nCette coopération promet d'être mutuellement enrichissante, où les frontières de la connaissance sont repoussées et les horizons de la coopération internationale élargis.",
+        "timestamp": "2026-06-03T23:59:40.500Z",
+        "relatedQuestion": "Y a-t-il une coopération entre le Maroc et la Hongrie ?"
+      },
+      {
+        "id": "1780531614760",
+        "role": "user",
+        "content": "Quels sont les débouchés de la data science et intelligence artificielle ?",
+        "timestamp": "2026-06-04T00:06:54.760Z"
+      },
+      {
+        "id": "1780531614761",
+        "role": "assistant",
+        "content": "Les débouchés de la Data Science et Intelligence Artificielle sont :\n\n- Décideurs dans le domaine de la santé\n- Ingénieurs e-santé\n- Data Scientist\n- Data Engineer\n- Data Officer\n- Chef de projet informatique dans un établissement de santé\n- Développeur Big Data\n- Consultant Analytics et visualisation\n- Ingénieur IA\n- Ingénieur en digitalisation\n- Intégrateur de solutions numériques\n- Ingénieur ou consultant décisionnel",
+        "timestamp": "2026-06-04T00:07:09.690Z",
+        "relatedQuestion": "Quels sont les débouchés de la data science et intelligence artificielle ?"
+      }
+    ],
+    "username": "Yousra",
+    "created_at": "2026-06-03T23:56:03.944669+00:00",
+    "updated_at": "2026-06-04T00:07:09.693043+00:00"
   }
 ]

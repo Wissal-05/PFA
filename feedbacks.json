@@ -150,5 +150,229 @@
     "rating": "positive",
     "comment": "",
     "created_at": "2026-06-03T00:04:49.224936+00:00"
+  },
+  {
+    "message_id": "1780525795587",
+    "question": "Qui est le directeur de l'ENSAM ?",
+    "answer": "Le directeur de l'ENSAM est le Pr. Samir BELFKIH.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:30:11.516203+00:00"
+  },
+  {
+    "message_id": "1780525823106",
+    "question": "Qui est le coordonnateur du génie industriel ?",
+    "answer": "Le coordonnateur du génie industriel est Pr. JALID Abdelilah.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:30:33.421452+00:00"
+  },
+  {
+    "message_id": "1780525915088",
+    "question": "C'est quoi l'ENSAM ?",
+    "answer": "L'ENSAM, également connue sous le nom de l'École Nationale Supérieure d'Arts et Métiers de Rabat, est une école d'ingénieurs située à Rabat, au Maroc. Elle fait partie de l'Université Mohammed V de Rabat.\n\nL'école propose des formations en ingénierie, avec des équipes pédagogiques dynamiques et compétentes qui accompagnent les étudiants dans leurs projets. Les approches pédagogiques utilisées incluent l'approche par compétences et le \"Learning by doing\".\n\nL'ENSAM Rabat a accueilli divers événements et compétitions, notamment la compétition interne d'ENACTUS, The Great Debaters, les Olympiades de l'INPT, et le Hult Prize. L'école a également accueilli des délégations étrangères, comme celle du Beijing Institute of Technology (BIT) - Chine.\n\nL'ENSAM Rabat est fière de son engagement envers l'innovation, la solidarité et la formation des futurs ingénieurs.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:32:26.808590+00:00"
+  },
+  {
+    "message_id": "1780526021389",
+    "question": "C'est quoi le learning by doing ?",
+    "answer": "Le \"Learning by doing\" est une approche pédagogique utilisée par l'ENSAM Rabat, comme indiqué dans la description de l'école. Cette approche consiste à apprendre en pratiquant, c'est-à-dire en effectuant des activités concrètes et en résolvant des problèmes réels, plutôt que de se limiter à la théorie et aux cours traditionnels.\n\nCette approche est mentionnée dans la section \"Approches pédagogiques\" de la description de l'école, où il est écrit : \"Approche par compétences, Learning by doing\". Cela suggère que l'ENSAM Rabat encourage les étudiants à apprendre en pratiquant et en développant leurs compétences, plutôt que de se concentrer uniquement sur la théorie.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:34:07.034754+00:00"
+  },
+  {
+    "message_id": "1780526066626",
+    "question": "C'est quoi le club RobotiCore ?",
+    "answer": "Le club RobotiCore est un club étudiant de l'ENSAM Rabat qui a marqué le coup d'envoi d'Innov4Talent à Orange digital center le 26 février. Ce club est composé de 5 équipes qui ont participé à des ateliers interactifs autour des défis et opportunités de l'Industrie 4.0, avec un focus sur Raspberry Pi et son immense potentiel en automatisation, IoT et robotique. Les étudiants du club RobotiCore sont motivés et entrent en phase de prototypage pour transformer leurs idées en solutions concrètes.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T22:34:46.799779+00:00"
+  },
+  {
+    "message_id": "1780526496965",
+    "question": "Qui est le directeur adjoint des affaires pédagogiques ?",
+    "answer": "Le directeur adjoint chargé des affaires pédagogiques est :\n\nPr. Malika ZAZI.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:41:43.048451+00:00"
+  },
+  {
+    "message_id": "1780526911861",
+    "question": "Qui est le secrétaire général ?",
+    "answer": "Le Secrétaire Général est Mr. Achraf BELLAOUCHOU.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:48:38.170843+00:00"
+  },
+  {
+    "message_id": "1780526932359",
+    "question": "Qui est responsable du département mathématiques appliquées ?",
+    "answer": "Le responsable du département \"Mathématiques appliquées et Génie Informatique\" est le Pr. Lahcen AZRAR.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:49:00.176755+00:00"
+  },
+  {
+    "message_id": "1780527140719",
+    "question": "Qui est responsable du département langues et communication ?",
+    "answer": "Le responsable du département \"langues, communication et sciences de l'éducation\" est :\n\n- Pr. Ilham SADOQI\n- Email : Ilham.sadoqi@ensam.um5.ac.ma",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:52:29.397466+00:00"
+  },
+  {
+    "message_id": "1780527162618",
+    "question": "Qui est l'assistante de direction ?",
+    "answer": "L'assistante de direction de l'ENSAM Rabat est Mme Souad EL BOUKILI.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:52:48.940726+00:00"
+  },
+  {
+    "message_id": "1780527180692",
+    "question": "Quelles sont les formations disponibles à l'ENSAM ?",
+    "answer": "Voici les formations disponibles à l'ENSAM :\n\n**Classes Préparatoires** : Classes Préparatoires\n**Cycle Ingénieur** :\n- ÉNERGIE ÉLECTRIQUE ET INDUSTRIE NUMÉRIQUE\n- GÉNIE BIOMÉDICAL\n- GÉNIE INDUSTRIEL ET TECHNOLOGIES NUMÉRIQUES\n- GÉNIE DES MATÉRIAUX, QUALITÉ ET ENVIRONNEMENT\n- INGÉNIEUR GÉNIE MÉCANIQUE\n- INGÉNIEURIE MÉCANIQUE POUR L’INDUSTRIE AÉRONAUTIQUE\n- INGÉNIERIE NUMÉRIQUE EN DATA SCIENCE, INTELLIGENCE ARTIFICIELLE & SANTÉ DIGITALE\n- INGÉNIERIE DES SYSTÈMES ENERGÉTIQUES\n**Master** :\n- MASTER EN MÉCANIQUE AVANCÉE\n- MASTER MANAGEMENT DE L’INNOVATION ET DE LA TECHNOLOGIE",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T22:53:22.673749+00:00"
+  },
+  {
+    "message_id": "1780528044136",
+    "question": "Quels sont les événements de l'ENSAM ?",
+    "answer": "Voici la liste des événemende l'ENSAM :\n\n1. Accueil d'une compétition interne d’ENACTUS - ENSAM RABAT\n2. Les moments forts de la demi-journée d'information organisée par l'ENSAM Rabat\n3. Découvrez la vidéo résumant les moments forts de la cérémonie d'ouverture des Olympiades de l'ENSAM Rabat\n4. La présence de l’ENSAM Rabat au SIEL MAROC 2025\n5.ccueil d'une conférence intitulée \"stratégies d’innovation, de veille technologique et de transformation digitale\" orchestrée par le club inextLab\n6. Accueil d’une Délégation Inter-INP pour une Semaine d’Échanges Innovants\n7. إستضافت المدرسة الوطنية العليا للفنون والمهن بالرباط حفل اختتام النسخة الثامنة من قافلة البسمة",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:09:28.050659+00:00"
+  },
+  {
+    "message_id": "1780528302708",
+    "question": "Quels sont les débouchés du master mécanique avancée ?",
+    "answer": "Les débouchés du master en Mécanique Avancée sont :\n\n- Préparer les étudiants aux métiers de recherches pour poursuivre des études en cycle de doctorat\n- Intégrer les métiers de l'ingénieur en recherche et développement dans les secteurs de l'aéronautique, le transport et l'automobile (ALTRAN, SAFRAN, MADREX, etc…).",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:11:59.506610+00:00"
+  },
+  {
+    "message_id": "1780528414896",
+    "question": "Qui est le coordonnateur des classes préparatoires ?",
+    "answer": "Je n'ai pas trouvé d'information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:14:29.378011+00:00"
+  },
+  {
+    "message_id": "1780528491807",
+    "question": "C'est quoi le département langues et communication ?",
+    "answer": "Le département Langues, Communication et Sciences de l'Éducation est un département de l'ENSAM Rabat.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:15:05.969504+00:00"
+  },
+  {
+    "message_id": "1780528569149",
+    "question": "'est quoi la conférence sur Mathematica ?",
+    "answer": "La conférence sur Mathematica s'est déroulée les 13 et 14 décembre 2023. Elle a été organisée par le département de Mathématiques Appliquées et Génie Informatique de l'ENSAM Rabat. Cette formation exclusive a été animée par M. Alex Upellini de chez Wolfram et était destinée aux enseignants et aux doctorants. L'objectif de cette conférence était de partager les connaissances et les compétences nécessaires pour maîtriser Mathematica de manière efficace, notamment pour intégrer cet outil dans les enseignements et les applications de recherche.\n\nVoici les détails  la conférence :\n\n- Date : 13 et 14 décembre 2023\n- Organisateur : Département de Mathématiques Appliquées et Génie Informatique\n- Animateur : M. Alex Upellini (Wolfram)\n- Public cible : Enseignants et doctorants\n- Objectif : Maîtriser Mathematica de manière efficace",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:16:38.894494+00:00"
+  },
+  {
+    "message_id": "1780528685826",
+    "question": "Quelle est l'université de rattachement de l'ENSAM ?",
+    "answer": "L'université de rattachement de l'ENSAM est l'Université de Rennes.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:18:13.893603+00:00"
+  },
+  {
+    "message_id": "1780529169107",
+    "question": "Quelle est l'approche pédagogique de l'ENSAM ?",
+    "answer": "L'approche pédagogique de l'ENSAM est basée sur deux approches :\n\n1. **Approche par compétences** : Cette approche permet aux étudiants d'acquérir des compétences spécifiques et ciblées pour leur insertion professionnelle.\n2. **Learning by doing** : Cette approche consiste à apprendre par la pratique et l'expérience, ce qui permet aux étudiants de développer leurs compétences de manière active et efficace.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:26:25.859364+00:00"
+  },
+  {
+    "message_id": "1780529101074",
+    "question": "Qui est le coordonnateur des classes préparatoires ?",
+    "answer": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:26:29.642055+00:00"
+  },
+  {
+    "message_id": "1780529234459",
+    "question": "Qui est le coordonnateur des classes préparatoires ?",
+    "answer": "Je n'ai pas trouvé d'information sur les classes préparatoires dans le contexte fourni. Les informations fournies concernent les formations de cycle ingénieur.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:27:53.329419+00:00"
+  },
+  {
+    "message_id": "1780529261373",
+    "question": "Qui est le coordonnateur des classes préparatoires ?",
+    "answer": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:27:58.853492+00:00"
+  },
+  {
+    "message_id": "1780529524791",
+    "question": "Qui est le coordonnateur des classes préparatoires ?",
+    "answer": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:37:20.972310+00:00"
+  },
+  {
+    "message_id": "1780529834528",
+    "question": "Qui est le coordonnateur des classes préparatoires ?",
+    "answer": "Je n'ai trouvé aucune information sur le coordonnateur des classes préparatoires dans le contexte fourni.",
+    "rating": "negative",
+    "comment": "",
+    "created_at": "2026-06-03T23:37:22.627271+00:00"
+  },
+  {
+    "message_id": "1780530937002",
+    "question": "Quels sont les événements de l'ENSAM ?",
+    "answer": "Voici les événements de l'ENSAM :\n\n1. Accueil d'une compétition interne d’ENACTUS - ENSAM RABAT (le samedi 8 mars)\n2. Les moments forts de la demi-journée d'information organisée par l'ENSAM Rabat (le mercredi 22 janvier 2025)\n3. Découvrez la vidéo résumant les moments forts de la cérémonie d'ouverture des Olympiades de l'ENSAM Rabat (pas de date spécifiée)\n4. L’ENSAM Rabat au SIEL 2025 (le lundi 21 avril 2025)\n5. The Great Debaters ont une fois de plus porté haut les couleurs de l’ENSAM Rabat à l’échelle nationale ! (pas de date spécifiée)\n6. Conférence de Haut Niveau à l'ENSAM Rabat : Vision stratégique sur l'essor industriel du Maroc avec M. Ryad MEZZOUR (mardi 25 Mars)\n7. Partenariat stratégique entre l'ENSAM Rabat et TDM Aerospace pour l’Industrie Aéronautique (le 12, pas de mois spécifié)",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:56:06.260775+00:00"
+  },
+  {
+    "message_id": "1780530991723",
+    "question": "Quels sont les objectifs pédagogiques de l'ENSAM ?",
+    "answer": "Les objectifs pédagogiques de l'ENSAM sont les suivants :\n\n- Acquérir les connaissances fondamentales en mathématiques, physique et chimie, ainsi que les outils généraux en sciences de l'ingénieur.\n- Approfondir ces matières pour développer une solide base de connaissances techniques et scientifiques.\n- Renforcer l'autonomie et le savoir-faire méthodologique des étudiants.\n- Développer les compétences informatiques.\n- Favoriser la capacité à mener des projets de manière indépendante et à résoudre des problèmes complexes.\n- Cultiver la rigueur de raisonnement et de travail.\n\nCes objectifs sont visés dans les différentes formations proposées par l'ENSAM, notamment les Classes Préparatoires et le Master en Management de l'Innovation et de la Technologie.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:57:01.856584+00:00"
+  },
+  {
+    "message_id": "1780531070295",
+    "question": "C'est quoi la rencontre stage entreprise PFE 2024 ?",
+    "answer": "La Rencontre Stage Entreprise dans le cadre de la Campagne PFE 2024 s'est déroulée le Mercredi 20 décembre 2023 à l'École Nationale Supérieure des Arts et Métiers de Rabat. Cette journée a permis aux étudiants de troisième année d'explorer des opportunités de stage captivantes et d'échanger directement avec des représentants d'entreprises de renom. Les entreprises partenaires ont présenté des opportunités de stage stimulantes et partagé leurs connaissances avec les futurs professionnels de l'ENSAM Rabat.\n\nCette rencontre a permis aux étudiants de mieux comprendre les exigences du monde du travail et d'explorer les diverses possibilités qui s'offrent à eux. L'ENSAM Rabat tient à remercier chaleureusement les étudiants, les représentants d'entreprises et tous les acteurs impliqués dans l'organisation de cet événement mémorable.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:58:57.990974+00:00"
+  },
+  {
+    "message_id": "1780531150279",
+    "question": "Y a-t-il une coopération entre le Maroc et la Hongrie ?",
+    "answer": "Oui, il existe une coopération entre le Maroc et la Hongrie. Cette coopération a été mise en avant lors de la réunion de travail, axée sur la Coopération en Recherche et Développement entre le Maroc et la Hongrie, qui s'est tenue le 07 mai 2024 à l'ENSAM Rabat. Cette réunion a réaffirmé l'engagement de l'ENSAM Rabat envers la collaboration internationale et l'excellence académique.\n\nL'objectif principal de cette réunion était de discuter du projet de recherche et développement appliqué, mettant en avant les compétences complémentaires et la détermination à collaborer pour faire progresser la science. Les chercheurs marocains et hongrois ont partagé leurs idées et perspectives dans le domaine des énergies renouvelables.\n\nCette coopération promet d'être mutuellement enrichissante, où les frontières de la connaissance sont repoussées et les horizons de la coopération internationale élargis.",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-03T23:59:44.843093+00:00"
+  },
+  {
+    "message_id": "1780531614761",
+    "question": "Quels sont les débouchés de la data science et intelligence artificielle ?",
+    "answer": "Les débouchés de la Data Science et Intelligence Artificielle sont :\n\n- Décideurs dans le domaine de la santé\n- Ingénieurs e-santé\n- Data Scientist\n- Data Engineer\n- Data Officer\n- Chef de projet informatique dans un établissement de santé\n- Développeur Big Data\n- Consultant Analytics et visualisation\n- Ingénieur IA\n- Ingénieur en digitalisation\n- Intégrateur de solutions numériques\n- Ingénieur ou consultant décisionnel",
+    "rating": "positive",
+    "comment": "",
+    "created_at": "2026-06-04T00:07:49.516118+00:00"
   }
 ]
